@@ -41,8 +41,9 @@ config nodogsplash
   # The following line allows access to the FAS wherever it is running but must be the port and ip address of FAS
   # The example here [allow tcp port 80 to 46.32.240.37] was a live demonstration available at the time of writing
   # It may still be available, try it and see.
-  list preauthenticated_users 'allow tcp port 80 to 151.101.1.195'
-  list preauthenticated_users 'allow tcp port 80 to 151.101.65.195'
+  list preauthenticated_users 'allow to 151.101.1.195' # imiwifi.org #1
+  list preauthenticated_users 'allow to 151.101.65.195' # imiwifi.org #2
+  list preauthenticated_users 'allow to 64.98.145.30' # imi.click
 
   # The following line is REQUIRED if the FAS is running ON THE SAME DEVICE as NDS
   # and is the TCP *port* of the FAS service if not listed elsewhere in the users_to_router section
