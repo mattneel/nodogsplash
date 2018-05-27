@@ -12,7 +12,7 @@ config nodogsplash
 
   # The network the users are connected to
   option network 'lan'
-  option gatewayname 'NodogsplashFAS'
+  option gatewayname '802AA8F1CBAF'
   option maxclients '250'
   option clientidletimeout '1200'
 
@@ -32,8 +32,8 @@ config nodogsplash
 
   # For preauthenticated users to resolve IP addresses in their
   # initial request not using the router itself as a DNS server,
-  #list preauthenticated_users 'allow tcp port 53'
-  #list preauthenticated_users 'allow udp port 53'
+  list preauthenticated_users 'allow tcp port 53'
+  list preauthenticated_users 'allow udp port 53'
 
   ############  FAS ############
   # Allow preauthenticated users access to the Forwarding Authentiation service
@@ -41,7 +41,9 @@ config nodogsplash
   # The following line allows access to the FAS wherever it is running but must be the port and ip address of FAS
   # The example here [allow tcp port 80 to 46.32.240.37] was a live demonstration available at the time of writing
   # It may still be available, try it and see.
-  list preauthenticated_users 'allow tcp port 80 to 46.32.240.37'
+  list preauthenticated_users 'allow to 151.101.1.195' # imiwifi.org #1
+  list preauthenticated_users 'allow to 151.101.65.195' # imiwifi.org #2
+  list preauthenticated_users 'allow to 64.98.145.30' # imi.click
 
   # The following line is REQUIRED if the FAS is running ON THE SAME DEVICE as NDS
   # and is the TCP *port* of the FAS service if not listed elsewhere in the users_to_router section
@@ -56,6 +58,7 @@ config nodogsplash
   list users_to_router 'allow udp port 67'
   list users_to_router 'allow tcp port 80'
   list users_to_router 'allow tcp port 443'
+  list users_to_router 'allow tcp port 13372'
 
   
   # MAC addresses that are / are not allowed to access the splash page
@@ -66,5 +69,5 @@ config nodogsplash
   #list blockedmac '00:00:C0:01:D0:2D'
 
   #MAC addresses that do not need to authenticate
-  #list trustedmac '00:00:C0:01:D0:1D'
+  list trustedmac '4C:CC:6A:7D:EE:FB'
 
